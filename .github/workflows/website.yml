@@ -33,10 +33,5 @@ jobs:
 
       # Conditional Deploy to Staging or Production based on Branch
       - name: Deploy to AWS with SST
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/master" ]; then
-            npx sst deploy --stage prod
-          elif [ "${{ github.ref }}" == "refs/heads/develop" ]; then
-            npx sst deploy --stage dev
-          else
-            echo "Branch is not configured for deployment"
+        run: npx sst deploy --stage dev
+          
